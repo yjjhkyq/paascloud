@@ -100,6 +100,16 @@
                 <artifactId>swagger-annotations</artifactId>
                 <version>${swagger.core.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.fox.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.fox.version}</version>
+            </dependency>
 
             <!-- 验证码 -->
             <dependency>
@@ -135,7 +145,11 @@
                 <artifactId>commons-fileupload</artifactId>
                 <version>${commons.fileupload.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.paascloud</groupId>
+                <artifactId>paascloud-common-swagger</artifactId>
+                <version>1.0.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
