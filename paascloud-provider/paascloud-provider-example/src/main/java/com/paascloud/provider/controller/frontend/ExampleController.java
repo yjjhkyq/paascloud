@@ -1,4 +1,4 @@
-package com.paascloud.provider.web.frontend;
+package com.paascloud.provider.controller.frontend;
 
 import com.paascloud.core.utils.ServletUtils;
 import org.springframework.beans.factory.annotation.Value;

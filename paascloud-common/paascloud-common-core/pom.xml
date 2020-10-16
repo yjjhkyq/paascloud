@@ -74,8 +74,18 @@
         </dependency>
 
         <dependency>
-        <groupId>cn.hutool</groupId>
-        <artifactId>hutool-all</artifactId>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
        </dependency>
+
+        <!-- pagehelper 分页插件 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
     </dependencies>
 </project>

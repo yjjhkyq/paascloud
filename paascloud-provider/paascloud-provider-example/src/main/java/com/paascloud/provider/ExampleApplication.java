@@ -2,10 +2,13 @@ package com.paascloud.provider;
 
 import com.paascloud.swagger.annotation.EnableCustomSwagger2;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.client.SpringCloudApplication;
 
 @EnableCustomSwagger2
 @SpringCloudApplication
+@EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
 public class ExampleApplication {
     public static void main(String[] args)
     {

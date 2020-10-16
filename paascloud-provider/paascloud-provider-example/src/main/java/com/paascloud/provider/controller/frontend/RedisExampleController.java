@@ -1,9 +1,8 @@
-package com.paascloud.provider.web.frontend;
+package com.paascloud.provider.controller.frontend;
 
 import com.paascloud.provider.domain.CacheObj;
 import com.paascloud.redis.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.Cache;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;

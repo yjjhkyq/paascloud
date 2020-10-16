@@ -53,8 +53,7 @@ public class RedisConfig extends CachingConfigurerSupport
                         // 设置key为String
                         .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(template.getStringSerializer()))
                         // 设置value 为自动转Json的Object
-                        .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(template.getValueSerializer()))
-                        .computePrefixWith(name -> name + ":");
+                        .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(template.getValueSerializer()));
                         // 不缓存null
                        // .disableCachingNullValues();
                         // 缓存数据保存1小时

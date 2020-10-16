@@ -1,4 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.paascloud.core.utils.SpringUtils
+  com.paascloud.core.utils.SpringUtils,\
+  com.paascloud.core.web.advice.ResponseControllerAdvice
 
   
