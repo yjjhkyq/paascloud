@@ -68,7 +68,7 @@ public class SwaggerAutoConfiguration
                 .apis(RequestHandlerSelectors.basePackage(swaggerProperties.getBasePackage()))
                 .paths(Predicates.and(Predicates.not(Predicates.or(excludePath)), Predicates.or(basePath)))
                 .build()
-                .securitySchemes(Collections.singletonList(securitySchema()))
+                .securitySchemes(securitySchemas())
                 .securityContexts(Collections.singletonList(securityContext()))
                 .pathMapping("/");
     }
@@ -93,22 +93,29 @@ public class SwaggerAutoConfiguration
       */
     private List<SecurityReference> defaultAuth()
     {
-         ArrayList<AuthorizationScope> authorizationScopeList = new ArrayList<>();
+        ArrayList<SecurityReference> securityReferences = new ArrayList<>();
+        ArrayList<AuthorizationScope> authorizationScopeList = new ArrayList<>();
          swaggerProperties().getAuthorization().getAuthorizationScopeList().forEach(authorizationScope -> authorizationScopeList.add(new AuthorizationScope(authorizationScope.getScope(), authorizationScope.getDescription())));
          AuthorizationScope[] authorizationScopes = new AuthorizationScope[authorizationScopeList.size()];
-         return Collections.singletonList(SecurityReference.builder()
+         securityReferences.add(SecurityReference.builder()
              .reference(swaggerProperties().getAuthorization().getName())
              .scopes(authorizationScopeList.toArray(authorizationScopes))
              .build());
+        securityReferences.add(SecurityReference.builder().reference("Authorization").scopes(new AuthorizationScope[]{new AuthorizationScope("global", "global des")}).build());
+         return securityReferences;
+
     }
 
-    private OAuth securitySchema()
+    private List<SecurityScheme> securitySchemas()
     {
+        ArrayList<SecurityScheme> securitySchemes = new ArrayList<>();
+        securitySchemes.add(new ApiKey("Authorization", "Authorization", "header"));
         ArrayList<AuthorizationScope> authorizationScopeList = new ArrayList<>();
         swaggerProperties().getAuthorization().getAuthorizationScopeList().forEach(authorizationScope -> authorizationScopeList.add(new AuthorizationScope(authorizationScope.getScope(), authorizationScope.getDescription())));
         ArrayList<GrantType> grantTypes = new ArrayList<>();
         swaggerProperties().getAuthorization().getTokenUrlList().forEach(tokenUrl -> grantTypes.add(new ResourceOwnerPasswordCredentialsGrant(tokenUrl)));
-        return new OAuth(swaggerProperties().getAuthorization().getName(), authorizationScopeList, grantTypes);
+        securitySchemes.add(new OAuth(swaggerProperties().getAuthorization().getName(), authorizationScopeList, grantTypes));
+        return securitySchemes ;
     }
 
     private ApiInfo apiInfo(SwaggerProperties swaggerProperties)

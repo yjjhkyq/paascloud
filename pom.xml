@@ -137,6 +137,8 @@
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi-ooxml</artifactId>
                 <version>${poi.version}</version>
+
+
             </dependency>
 
             <!-- 文件上传工具类 -->
@@ -145,9 +147,26 @@
                 <artifactId>commons-fileupload</artifactId>
                 <version>${commons.fileupload.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>5.4.4</version>
+            </dependency>
             <dependency>
                 <groupId>com.paascloud</groupId>
                 <artifactId>paascloud-common-swagger</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.paascloud</groupId>
+                <artifactId>paascloud-common-core</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.paascloud</groupId>
+                <artifactId>paascloud-common-util</artifactId>
                 <version>1.0.0</version>
             </dependency>
         </dependencies>
