@@ -46,14 +46,15 @@ public class RedisConfig extends CachingConfigurerSupport
     }
 
     @Bean
-    public CacheManager cacheManager(RedisTemplate<String, Object> template) {
+    public CacheManager cacheManager(RedisTemplate<Object, Object> template) {
         RedisCacheConfiguration defaultCacheConfiguration =
                 RedisCacheConfiguration
                         .defaultCacheConfig()
                         // 设置key为String
                         .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(template.getStringSerializer()))
                         // 设置value 为自动转Json的Object
-                        .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(template.getValueSerializer()));
+                        .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(template.getValueSerializer()))
+                        .computePrefixWith(name -> name + ":");
                         // 不缓存null
                        // .disableCachingNullValues();
                         // 缓存数据保存1小时
