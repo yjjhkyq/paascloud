@@ -3,7 +3,6 @@ package com.paascloud.core.exception;
 /**
  * 自定义异常
  * 
- * @author ruoyi
  */
 public class CustomException extends RuntimeException
 {
