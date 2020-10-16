@@ -50,6 +50,10 @@
             <groupId>com.paascloud</groupId>
             <artifactId>paascloud-common-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.paascloud</groupId>
+            <artifactId>paascloud-common-redis</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
