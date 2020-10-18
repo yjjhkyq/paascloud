@@ -3,7 +3,7 @@ package com.paascloud.core.web.advice;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.paascloud.core.domain.R;
+import com.paascloud.core.web.api.R;
 import com.paascloud.core.exception.BaseException;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;

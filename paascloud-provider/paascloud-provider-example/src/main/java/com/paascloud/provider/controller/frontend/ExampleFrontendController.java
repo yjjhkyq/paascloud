@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/example")
-public class ExampleController {
+@RequestMapping("/frontend/example")
+public class ExampleFrontendController {
 
 
     @Value("${test}")
@@ -23,7 +23,7 @@ public class ExampleController {
     public String hello(){
         return "sddddddddddddddd";
     }
-
+    
     @GetMapping("/header")
     public String header(){
         return ServletUtils.getRequest().getHeader("Authorization");

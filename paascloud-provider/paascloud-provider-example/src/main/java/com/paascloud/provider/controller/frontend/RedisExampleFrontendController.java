@@ -8,8 +8,8 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/redisExample")
-public class RedisExampleController {
+@RequestMapping("/frontend/redisExample")
+public class RedisExampleFrontendController {
     @Autowired
     private RedisService redisService;
 
