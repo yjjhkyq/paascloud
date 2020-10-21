@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @EnableCustomSwagger2
 @SpringCloudApplication
-@EnableFeignClients(basePackages = "com.paascloud")
+@EnableFeignClients
 public class ExampleConsumerApplication {
     public static void main(String[] args)
     {
