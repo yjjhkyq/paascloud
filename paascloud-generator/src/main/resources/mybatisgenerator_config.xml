@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <context id="mysql" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="true"/> <!--数据库注释-->
+            <property name="suppressAllComments" value="false"/>
+            <property name="addRemarkComments" value="true"/>
+        </commentGenerator>
+        <!--数据库连接信息-->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/paascloud_example?characterEncoding=utf8&amp;serverTimezone=GMT"
+                        userId="root" password="root" />
+        <javaTypeResolver>
+            <!--官方解释:默认的Java Type Resolver尝试通过替换Integral类型（Long，Integer，Short等）.-->
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--实体生成路径和Package路径-->
+        <javaModelGenerator targetPackage="com.paascloud.provider.domain" targetProject="paascloud-generator/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--mapper生成路径和Package路径-->
+        <sqlMapGenerator targetPackage="com.paascloud.provider.mapper" targetProject="paascloud-generator/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!--接口成路径和Package路径-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.paascloud.provider.dao" targetProject="paascloud-generator/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!--表映射-->
+        <table tableName="example" domainObjectName="Example" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+    </context>
+</generatorConfiguration>

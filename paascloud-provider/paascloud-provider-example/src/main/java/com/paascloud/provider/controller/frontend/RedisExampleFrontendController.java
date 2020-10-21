@@ -1,6 +1,6 @@
 package com.paascloud.provider.controller.frontend;
 
-import com.paascloud.provider.domain.CacheObj;
+import com.paascloud.provider.model.domain.CacheObj;
 import com.paascloud.redis.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -38,7 +38,7 @@ public class RedisExampleFrontendController {
 
     @Cacheable(cacheNames = "CacheObj", key = "#obj.getId()")
     @PostMapping("/selectCacheObj")
-    public  CacheObj selectCacheObj(@RequestBody CacheObj obj){
+    public CacheObj selectCacheObj(@RequestBody CacheObj obj){
         return obj;
     }
 

@@ -1,7 +1,15 @@
 package com.paascloud.core.web.page;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.paascloud.core.utils.ServletUtils;
+import org.springframework.beans.BeanUtils;
+
+import javax.validation.constraints.Max;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
 
 /**
  * 表格数据处理
@@ -46,5 +54,18 @@ public class TableSupport
     public static PageDomain buildPageRequest()
     {
         return getPageDomain();
+    }
+
+    public static IPage buildIPageRequest(){
+        PageDomain pageDomain = getPageDomain();
+        return new Page<>(pageDomain.getPageNum(), pageDomain.getPageSize(), true);
+    }
+
+    public static <T, R> TableDataInfo<R> buildTableDataInfo(IPage<T> page, Function<T, R> funcation){
+        List<R> result = new ArrayList<R>(page.getRecords().size());
+        page.getRecords().forEach(s -> {
+            result.add(funcation.apply(s));
+        });
+        return new TableDataInfo<R>(result, page.getTotal());
     }
 }

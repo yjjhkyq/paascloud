@@ -1,6 +1,7 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.paascloud.core.utils.SpringUtils,\
-  com.paascloud.core.web.advice.ResponseControllerAdvice,\
-  com.paascloud.core.aspects.GlobalExceptionHandler
+  com.paascloud.core.web.aspects.ResponseControllerAdvice,\
+  com.paascloud.core.aspects.GlobalExceptionHandler,\
+  com.paascloud.core.configure.MybatisPlusConfig
 
   

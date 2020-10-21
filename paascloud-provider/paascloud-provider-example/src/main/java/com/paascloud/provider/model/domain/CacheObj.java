@@ -1,4 +1,4 @@
-package com.paascloud.provider.domain;
+package com.paascloud.provider.model.domain;
 
 public class CacheObj {
     private String id;

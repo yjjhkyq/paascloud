@@ -1,20 +1,18 @@
-package com.paascloud.provider;
+package com.paascloud.generator;
 
 import com.paascloud.swagger.annotation.EnableCustomSwagger2;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.client.SpringCloudApplication;
 
-@EnableCustomSwagger2
 @SpringCloudApplication
-@MapperScan("com.paascloud.provider.mapper")
-public class ExampleApplication {
-    public static void main(String[] args)
-    {
-        SpringApplication.run(ExampleApplication.class, args);
-        System.out.println("(♥◠‿◠)ﾉﾞ  示例模块启动成功   ლ(´ڡ`ლ)ﾞ  \n" +
+@EnableCustomSwagger2
+@EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
+public class MybatisGeneratorApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MybatisGeneratorApplication.class, args);
+        System.out.println("(♥◠‿◠)ﾉﾞ  代码生成器启动成功   ლ(´ڡ`ლ)ﾞ  \n" +
                 " .-------.       ____     __        \n" +
                 " |  _ _   \\      \\   \\   /  /    \n" +
                 " | ( ' )  |       \\  _. /  '       \n" +
@@ -24,5 +22,6 @@ public class ExampleApplication {
                 " |  | \\ `'   /|   `-'  /           \n" +
                 " |  |  \\    /  \\      /           \n" +
                 " ''-'   `'-'    `-..-'              ");
+
     }
 }
