@@ -12,4 +12,6 @@ public class ExampleRpcController {
     public String example(){
         return "rpc example";
     }
+
+
 }
