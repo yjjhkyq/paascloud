@@ -62,7 +62,7 @@ public class ExampleFrontendController extends BaseController {
         exampleService.updateById(example);
     }
 
-    @PostMapping("/deleteExampleByIds")
+    @PostMapping("/deleteExampleById")
     public void deleteExampleByIds(Long id){
         exampleService.removeById(id);
     }
