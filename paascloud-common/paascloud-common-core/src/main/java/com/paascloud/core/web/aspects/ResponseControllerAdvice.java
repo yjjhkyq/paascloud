@@ -34,6 +34,3 @@ public class ResponseControllerAdvice implements ResponseBodyAdvice {
         return R.ok(o);
     }
 }
-//public class ResponseControllerAdvice  {
-//
-//}
