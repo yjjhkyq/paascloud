@@ -13,8 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/frontend/exampleConsumer")
 public class ExampleConsumerController extends BaseController {
-    @Autowired
+
     private RemoteExampleService remoteExampleService1;
+
+    @Autowired
+    public ExampleConsumerController(RemoteExampleService remoteExampleService){
+        this.remoteExampleService1 = remoteExampleService;
+    }
 
     @PostMapping("/selectExampleById")
     R<ExampleVo> selectExampleById(@RequestParam("id") Long id){

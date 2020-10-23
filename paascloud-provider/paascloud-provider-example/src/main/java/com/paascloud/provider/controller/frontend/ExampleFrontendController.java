@@ -18,12 +18,16 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/frontend/example")
 public class ExampleFrontendController extends BaseController {
-    @Autowired
-    private IExampleService exampleService;
+
+    private final IExampleService exampleService;
 
     @Value("${test}")
     private String test;
 
+    @Autowired
+    public ExampleFrontendController(IExampleService exampleService){
+        this.exampleService = exampleService;
+    }
     @GetMapping("/testReadConfiguration")
     public String testReadConfiguration(){
         return test;

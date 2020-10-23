@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/frontend/redisExample")
 public class RedisExampleFrontendController {
-    @Autowired
-    private RedisService redisService;
+    private final RedisService redisService;
 
+    @Autowired
+    public RedisExampleFrontendController(RedisService redisService){
+        this.redisService = redisService;
+    }
     @GetMapping("/getBy")
     public String getBy(String key){
         return redisService.getCacheObject(key);
