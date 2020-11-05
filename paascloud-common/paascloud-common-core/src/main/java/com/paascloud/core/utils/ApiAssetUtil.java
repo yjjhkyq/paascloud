@@ -1,6 +1,7 @@
 package com.paascloud.core.utils;
 import com.paascloud.core.exception.ApiException;
 import com.paascloud.core.web.api.IErrorCode;
+import com.paascloud.core.web.api.R;
 import com.paascloud.core.web.api.ResultCode;
 import org.springframework.lang.Nullable;
 
@@ -54,6 +55,12 @@ public abstract class ApiAssetUtil{
     public static void notNull(@Nullable Object object, IErrorCode errorCode) {
         if (object == null) {
             throw new ApiException(errorCode);
+        }
+    }
+
+    public static void success(R r){
+        if (r.getCode() != ResultCode.SUCCESS.getCode()){
+            throw new ApiException(r.getCode(), r.getMessage());
         }
     }
 }

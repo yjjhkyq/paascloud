@@ -19,12 +19,6 @@ public class ApiException extends RuntimeException
         this.message = message;
     }
 
-    public ApiException(String message, long code)
-    {
-        this.message = message;
-        this.code = code;
-    }
-
     public ApiException(long code, String message)
     {
         this.message = message;
