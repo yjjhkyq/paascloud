@@ -16,6 +16,7 @@
         <module>paascloud-common-core</module>
         <module>paascloud-common-swagger</module>
         <module>paascloud-common-redis</module>
+        <module>paascloud-common-xxljob</module>
     </modules>
 
 

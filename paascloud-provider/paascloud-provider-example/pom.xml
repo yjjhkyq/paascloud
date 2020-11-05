@@ -66,6 +66,10 @@
             <groupId>com.paascloud</groupId>
             <artifactId>paascloud-common-redis</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.paascloud</groupId>
+            <artifactId>paascloud-common-xxljob</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
